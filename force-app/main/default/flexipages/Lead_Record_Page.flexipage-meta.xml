@@ -175,6 +175,13 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Lead_sEmail_address_copy__c</fieldItem>
                 <identifier>RecordLead_sEmail_address_copy_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!$User.Username}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>test-yscmbbooqbnk@example.com</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
