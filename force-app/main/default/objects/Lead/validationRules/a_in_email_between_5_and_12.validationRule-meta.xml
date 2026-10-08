@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>a_in_email_between_5_and_12</fullName>
+    <active>true</active>
+    <errorConditionFormula>REGEX( Email , &quot;^.{0,4}a.{0,7}.*&quot;)</errorConditionFormula>
+    <errorMessage>Email should NOT contain the character a between the 5th and 12th character.</errorMessage>
+</ValidationRule>
