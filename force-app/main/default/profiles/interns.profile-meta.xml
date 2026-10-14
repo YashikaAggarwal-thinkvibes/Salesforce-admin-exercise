@@ -628,6 +628,26 @@
     <layoutAssignments>
         <layout>Student__c-Student Layout</layout>
     </layoutAssignments>
+    <loginHours>
+        <fridayEnd>1140</fridayEnd>
+        <fridayStart>540</fridayStart>
+        <mondayEnd>1140</mondayEnd>
+        <mondayStart>540</mondayStart>
+        <saturdayEnd>1140</saturdayEnd>
+        <saturdayStart>540</saturdayStart>
+        <sundayEnd>1140</sundayEnd>
+        <sundayStart>540</sundayStart>
+        <thursdayEnd>1140</thursdayEnd>
+        <thursdayStart>540</thursdayStart>
+        <tuesdayEnd>1140</tuesdayEnd>
+        <tuesdayStart>540</tuesdayStart>
+        <wednesdayEnd>1140</wednesdayEnd>
+        <wednesdayStart>540</wednesdayStart>
+    </loginHours>
+    <loginIpRanges>
+        <endAddress>192.168.1.254</endAddress>
+        <startAddress>192.168.1.1</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
