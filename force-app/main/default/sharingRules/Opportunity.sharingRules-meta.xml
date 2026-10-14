@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>APAC_reps_can_read_each_other_s_Opportunities</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>APAC reps can read each other&apos;s Opportunities</label>
+        <sharedTo>
+            <role>Sales_Rep_APAC</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Sales_Rep_APAC</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
