@@ -2,6 +2,6 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Next_step_must_be_populated</fullName>
     <active>true</active>
-    <errorConditionFormula>IF( $Profile.Name =&quot;System Administrator&quot;, False, IF( TEXT(StageName)  =&quot;Closed Won&quot; ,  ISBLANK(NextStep),False))</errorConditionFormula>
+    <errorConditionFormula>IF( $Profile.Name =&quot;System Administrator&quot;, False, IF( AND(TEXT(StageName)  =&quot;Closed Won&quot;, TEXT(PRIORVALUE( StageName))=&quot;Negotiation&quot; ) ,  ISBLANK(NextStep),False))</errorConditionFormula>
     <errorMessage>‘Next step’ field must be populated</errorMessage>
 </ValidationRule>
