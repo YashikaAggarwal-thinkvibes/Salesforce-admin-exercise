@@ -2,6 +2,28 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>68.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>is_profile_inside_sales</name>
+        <label>is profile inside sales</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Profile.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>get_queue_records.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_get_group_of_queue</targetReference>
+            </connector>
+            <label>yes</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>automate add new user them into a queue {!$Flow.CurrentDateTime}</interviewLabel>
     <label>automate add new user them into a queue</label>
@@ -25,14 +47,14 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>add_user_to_queue</name>
-        <label>add user to queue</label>
+        <name>Copy_1_of_add_user_to_queue</name>
+        <label>Copy 1 of add user to queue</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <inputAssignments>
             <field>GroupId</field>
             <value>
-                <elementReference>get_group_of_queue.Id</elementReference>
+                <elementReference>Copy_1_of_get_group_of_queue.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -45,13 +67,13 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>get_group_of_queue</name>
-        <label>get group of queue</label>
+        <name>Copy_1_of_get_group_of_queue</name>
+        <label>Get group of queue</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>add_user_to_queue</targetReference>
+            <targetReference>Copy_1_of_add_user_to_queue</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -79,7 +101,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>get_group_of_queue</targetReference>
+            <targetReference>is_profile_inside_sales</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -103,5 +125,5 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>
